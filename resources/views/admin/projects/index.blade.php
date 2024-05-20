@@ -3,13 +3,13 @@
 @section('content')
     <header class="py-3 bg-primary">
         <div class="container">
-            <h1>Projects</h1>
+            <h1 class="text-white">Projects</h1>
         </div>
     </header>
 
     <section class="py-5">
         <div class="container">
-            <h3>All projects</h3>
+            <h3 class="">All projects</h3>
             <div class="table-responsive">
                 <table class="table table-light">
                     <thead>
@@ -30,9 +30,9 @@
                                 <td class="text-center">{{ $project->title }}</td>
                                 <td class="text-center">{{ $project->slug }}</td>
                                 <td class="text-center">
-                                    <a href="">Edit</a>
-                                    |
                                     <a href="">Show</a>
+                                    |
+                                    <a href="">Edit</a>
                                     |
                                     <a href=""> Delete</a>
                                 </td>
