@@ -30,7 +30,8 @@
                                 <td class="text-center">{{ $project->title }}</td>
                                 <td class="text-center">{{ $project->slug }}</td>
                                 <td class="text-center">
-                                    <a href="">Show</a>
+                                    <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-primary">Show <i
+                                            class="fa fa-eye" aria-hidden="true"></i></a>
                                     |
                                     <a href="">Edit</a>
                                     |
