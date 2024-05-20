@@ -2,8 +2,10 @@
 
 @section('content')
     <header class="py-3 bg-primary">
-        <div class="container">
+        <div class="container d-flex justify-content-between align-items-center">
             <h1 class="text-white">Projects</h1>
+            <a href="{{ route('admin.projects.create') }}" class="btn btn-dark"><i class="fa fa-pencil" aria-hidden="true"></i>
+                Create new project</a>
         </div>
     </header>
 
