@@ -35,7 +35,8 @@
                                     <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-primary">Show <i
                                             class="fa fa-eye" aria-hidden="true"></i></a>
                                     |
-                                    <a href="">Edit</a>
+                                    <a href="{{ route('admin.projects.edit', $project) }}" class="btn btn-primary">Edit <i
+                                            class="fa-solid fa-pen-to-square"></i></a>
                                     |
                                     <a href=""> Delete</a>
                                 </td>
