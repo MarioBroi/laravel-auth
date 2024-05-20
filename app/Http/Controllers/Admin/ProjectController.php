@@ -41,7 +41,7 @@ class ProjectController extends Controller
 
         $validated['slug'] = $slug;
 
-        ($validated);
+        //dd($slug, $validated);
 
         Project::create($validated);
 
