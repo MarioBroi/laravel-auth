@@ -11,7 +11,16 @@
 
     <section class="py-5">
         <div class="container">
+
             <h3 class="">All projects</h3>
+
+            @if (session('message'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    {{ session('message') }}
+                </div>
+            @endif
+
             <div class="table-responsive">
                 <table class="table table-light">
                     <thead>
