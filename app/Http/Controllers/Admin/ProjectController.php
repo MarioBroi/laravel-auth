@@ -45,7 +45,7 @@ class ProjectController extends Controller
 
         Project::create($validated);
 
-        return to_route('admin.projects.index')->with('message', 'Post created successfully');
+        return to_route('admin.projects.index')->with('message', "Project $$request->title created successfully");
     }
 
     /**
@@ -73,7 +73,7 @@ class ProjectController extends Controller
 
         $project->update($request->all());
 
-        return to_route('admin.projects.index', $project)->with('message', 'Post update successfully');
+        return to_route('admin.projects.index', $project)->with('message', "Project $project->title update successfully");
     }
 
     /**
@@ -83,6 +83,6 @@ class ProjectController extends Controller
     {
         $project->delete();
 
-        return to_route('admin.projects.index')->with('message', 'Post deleted successfully');
+        return to_route('admin.projects.index')->with('message', "Project $project->title delete successfully");
     }
 }
