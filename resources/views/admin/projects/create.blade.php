@@ -35,7 +35,7 @@
 
             <div class="mb-3">
                 <label for="project_img" class="form-label">Project image</label>
-                <input type="text" class="form-control" @error('project_img') is-invalid @enderror name="project_img"
+                <input type="file" class="form-control" @error('project_img') is-invalid @enderror name="project_img"
                     id="project_img" aria-describedby="project_imgHelper" placeholder="https://" />
                 <small id="project_imgHelper" class="form-text text-muted">Put the project image link</small>
                 @error('project_img')
