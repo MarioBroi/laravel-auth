@@ -36,8 +36,9 @@
                         @forelse ($projects as $project)
                             <tr class="">
                                 <td scope="row" class="text-center">{{ $project->id }}</td>
-                                <td class="text-center"><img src="{{ $project->project_img }}" alt=""
-                                        width="100"></td>
+                                <td class="text-center">
+                                    <img src="{{ $project->project_img }}" alt="" width="100">
+                                </td>
                                 <td class="text-center">{{ $project->title }}</td>
                                 <td class="text-center">{{ $project->slug }}</td>
                                 <td class="text-center">
