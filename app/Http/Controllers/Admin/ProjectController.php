@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ProjectController extends Controller
@@ -40,6 +41,18 @@ class ProjectController extends Controller
         $slug = Str::slug($request->title, '-');
 
         $validated['slug'] = $slug;
+
+        //controllo se nella richiesta é presente una immagine, altrimenti skippo questo procedimento
+        if ($request->has('project_img')) {
+
+            //recupero in una variabile la project_img
+            $image_path = Storage::put('uploads', $validated['project_img']);
+            //dd($validated, $image_path);
+
+            //salvo l'url dell'imagine sul validate
+            $validated['project_img'] = $image_path;
+            //dd($validated);
+        }
 
         //dd($slug, $validated);
 
