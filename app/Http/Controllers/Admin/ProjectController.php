@@ -58,7 +58,7 @@ class ProjectController extends Controller
 
         Project::create($validated);
 
-        return to_route('admin.projects.index')->with('message', "Project $$request->title created successfully");
+        return to_route('admin.projects.index')->with('message', "Project $request->title created successfully");
     }
 
     /**
@@ -82,9 +82,27 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //dd($request->all());
 
-        $project->update($request->all());
+        $validated = $request->validated();
+        $slug = Str::slug($request->title, '-');
+        $validated['slug'] = $slug;
+
+        //dd($validated);
+
+        if ($request->has('project_img')) {
+
+            if ($project->project_img) {
+                // cancello la vecchia immagine
+                Storage::delete($project->project_img);
+            }
+
+            $image_path = Storage::put('uploads', $validated['project_img']);
+
+            //dd($validated, $image_path);
+            $validated['project_img'] = $image_path;
+        }
+
+        $project->update($validated);
 
         return to_route('admin.projects.index', $project)->with('message', "Project $project->title update successfully");
     }

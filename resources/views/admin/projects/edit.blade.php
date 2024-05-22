@@ -19,7 +19,7 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.projects.update', $project) }}" method="post">
+        <form action="{{ route('admin.projects.update', $project) }}" method="post" enctype="multipart/form-data">
             @csrf
             @method('PUT')
 
@@ -37,10 +37,14 @@
             </div>
 
             <div class="mb-3">
+                @if (Str::startsWith($project->project_img, 'https://'))
+                    <img width="140" src="{{ $project->project_img }}" alt="{{ $project->title }}">
+                @else
+                    <img width="140" src="{{ asset('storage/' . $project->project_img) }}" alt="{{ $project->title }}">
+                @endif
                 <label for="project_img" class="form-label">Project image</label>
-                <input type="text" class="form-control" @error('project_img') is-invalid @enderror name="project_img"
-                    id="project_img" aria-describedby="project_imgHelper" placeholder="https://"
-                    value="{{ $project->project_img }}" />
+                <input type="file" class="form-control" @error('project_img') is-invalid @enderror name="project_img"
+                    id="project_img" aria-describedby="project_imgHelper" placeholder="https://" value="" />
                 <small id="project_imgHelper" class="form-text text-muted">Put the project image link</small>
                 @error('project_img')
                     <div class="text-danger py-2">
