@@ -10,7 +10,7 @@
     </header>
 
     <section class="py-5">
-        <div class="container">
+        <div class="container-xxl">
 
             <h3 class="">All projects</h3>
 
@@ -29,6 +29,8 @@
                             <th scope="col" class="text-center">Project Image</th>
                             <th scope="col" class="text-center">Title</th>
                             <th scope="col" class="text-center">Slug</th>
+                            <th scope="col" class="text-center">Link</th>
+                            <th scope="col" class="text-center">GitHub</th>
                             <th scope="col" class="text-center">Actions</th>
                         </tr>
                     </thead>
@@ -46,6 +48,8 @@
                                 </td>
                                 <td class="text-center">{{ $project->title }}</td>
                                 <td class="text-center">{{ $project->slug }}</td>
+                                <td class="text-center">{{ $project->project_link }}</td>
+                                <td class="text-center">{{ $project->project_github }}</td>
                                 <td class="text-center">
                                     <a href="{{ route('admin.projects.show', $project) }}" class="btn btn-primary">Show <i
                                             class="fa fa-eye" aria-hidden="true"></i></a>
